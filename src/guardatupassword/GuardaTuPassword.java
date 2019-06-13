@@ -18,6 +18,9 @@ public class GuardaTuPassword {
      */
     public static void main(String[] args) {
         
+        Passwords p = new Passwords();
+        ManejaPasswords manp = new ManejaPasswords();
+        
         int menu=1;
         int menu2=5;
         String contra="1234"; //La contraseña por omisión es 1234
@@ -27,6 +30,9 @@ public class GuardaTuPassword {
         Scanner sca = new Scanner(System.in);
         Scanner scann = new Scanner(System.in);
         Scanner scanne = new Scanner(System.in);
+        Scanner scanid = new Scanner(System.in);
+        Scanner scanserv = new Scanner(System.in);
+        Scanner scanpsswd = new Scanner(System.in);
         
         do
         {
@@ -41,9 +47,22 @@ public class GuardaTuPassword {
                 switch (menu2) {
                 //Almacenar Contraseña nueva
                     case 1:
+                    {
+                        System.out.println("Introduzca ID");
+                        p.setId(scanid.nextInt());
+                        
+                        System.out.println("Introduzca Servicio");
+                        p.setServicio(scanserv.nextLine());
+                        
+                        System.out.println("Introduzca Password");
+                        p.setPass(scanpsswd.nextLine());
+                        
+                        manp.GuardaPass(p);
+                    }
                         break;
                 //Listar Contraseñas
                     case 2:
+                        manp.Listar();
                         break;
                     case 3:
                         System.out.println("Introduzca nueva password para login");
